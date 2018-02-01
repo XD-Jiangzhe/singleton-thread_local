@@ -6,6 +6,14 @@
 
 使用了pthread_once 函数，类中所有的成员和方法都是静态，保证了在main之前就对其进行初始化
 
+       #include <pthread.h>
+
+       pthread_once_t once_control = PTHREAD_ONCE_INIT;
+
+       int pthread_once(pthread_once_t *once_control, void (*init_routine) (void));
+           
+       PTHREAD_ONCE_INIT
+
 singleton对象 是全局单例对象， 只有一个对外接口，无析构无拷贝和初始化构造函数
 在init()的时候需要有一个 atexit 函数 设置它的析构函数，在程序结束的时候或是退出的时候调用析构函数
 
