@@ -34,5 +34,6 @@ std::bind(&thread_local::deleter, this ,std::placeholders::_1);
 
 typedef singleton<thread_local<Test>> STL;
       
-      
+     
+
 这种形式 指一个全局的 变量，拥有一个线程私有成员对象， 所以每个线程中都有自己的Test 的版本。
